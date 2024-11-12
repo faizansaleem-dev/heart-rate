@@ -1,0 +1,45 @@
+/* Modals */
+.modal {
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--backdrop-background);
+  padding: 15px;
+  transition: var(--transition-duration) ease-in-out all;
+}
+.modal.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal .modal-box {
+  background: var(--page-background);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--border-radius-large);
+  max-width: 500px;
+  padding: 15px;
+  max-height: 100%;
+}
+.modal .modal-box .heading {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.modal .modal-box .heading h1 {
+  font-size: 1.5em;
+  font-weight: normal;
+  margin: 0;
+  flex-grow: 1;
+}
+.modal .modal-box .content {
+  overflow-y: auto;
+}
