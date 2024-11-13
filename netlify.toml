@@ -3,7 +3,7 @@
   publish = "dist"
 
   [build.environment]
-    REACT_APP_BACKEND_URL = "https://default-backend-url.example.com" # Placeholder URL
+    REACT_APP_BACKEND_URL = "https://41567978d71fe4.lhr.life"
 
 [[redirects]]
   from = "/*"
