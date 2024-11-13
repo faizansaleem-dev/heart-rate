@@ -83,9 +83,9 @@ const HeartRateMonitorApp = () => {
           <button onClick={openModal} className="hover:text-black">
             Instructions
           </button>
-          <button onClick={openModal} className="hover:text-black">
+          {/* <button onClick={openModal} className="hover:text-black">
             About
-          </button>
+          </button> */}
         </div>
       </div>
 

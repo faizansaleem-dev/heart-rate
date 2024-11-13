@@ -30,7 +30,7 @@ export default function MenuButton() {
         }}
       >
         <MenuItem onClick={handleClose}>Instructions</MenuItem>
-        <MenuItem onClick={handleClose}>About</MenuItem>
+        {/* <MenuItem onClick={handleClose}>About</MenuItem> */}
       </Menu>
     </Box>
   );

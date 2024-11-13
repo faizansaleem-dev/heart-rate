@@ -144,7 +144,7 @@ export const classifyHeartRate = (bpm) => {
 };
 
 export const breathingTechniques = {
-  low: { inhale: 4, hold: 2, exhale: 4, holdAfterExhale: 2, color: "yellow" },
+  low: { inhale: 4, hold: 2, exhale: 4, holdAfterExhale: 2, color: "pink" },
   mild: { inhale: 4, hold: 4, exhale: 4, holdAfterExhale: 4, color: "green" },
   high: { inhale: 4, hold: 7, exhale: 8, holdAfterExhale: 0, color: "blue" },
 };

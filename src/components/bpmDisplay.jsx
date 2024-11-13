@@ -89,7 +89,7 @@ const BpmDisplay = ({
         </div>
       )}
 
-      {state === "result" && !isComplete && (
+      {/* {state === "result" && !isComplete && (
         <div className="text-center py-6">
           <p className="mb-4">Your heart rate is</p>
           <div className="mb-4">
@@ -106,7 +106,7 @@ const BpmDisplay = ({
             Measure again
           </button>
         </div>
-      )}
+      )} */}
     </>
   );
 };

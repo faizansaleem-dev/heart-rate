@@ -39,11 +39,24 @@ const BreathingCircle = ({ breathingPattern }) => {
   }, [breathingPattern]);
 
   return (
-    <div
-      className="my-6 mx-auto mt-20"
-      ref={circleRef}
-      id="breathing-circle"
-    ></div>
+    <>
+      <div
+        className="my-6 mx-auto mt-20"
+        ref={circleRef}
+        id="breathing-circle"
+      ></div>
+      <div
+        className="mt-10"
+        style={{
+          color: breathingPattern && breathingPattern.color,
+        }}
+      >
+        Inhale for {breathingPattern && breathingPattern.inhale}, Hold for{" "}
+        {breathingPattern && breathingPattern.hold}, Exhale for{" "}
+        {breathingPattern && breathingPattern.exhale}, Hold Exhale for{" "}
+        {breathingPattern && breathingPattern.holdAfterExhale}
+      </div>
+    </>
   );
 };
 

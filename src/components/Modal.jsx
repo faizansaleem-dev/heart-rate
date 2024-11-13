@@ -34,12 +34,15 @@ export default function Modal({ isOpen, closeModal }) {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Payment successful
+                    Instructions
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      Your payment has been successfully submitted. We’ve sent
-                      you an email with all of the details of your order.
+                      Place your finger on the back camera, and allow the app to
+                      capture the quality of your heart rate. Once we have it,
+                      we'll guide you through a breathing exercise using a
+                      breathing circle. Simply follow along and breathe in sync
+                      with the circle!
                     </p>
                   </div>
 
