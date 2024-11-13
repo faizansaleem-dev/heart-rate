@@ -29,20 +29,22 @@ const useHeartRateMonitor = () => {
   const [isFlashlightOn, setIsFlashlightOn] = useState(false);
   const MAX_SAMPLES = 60 * 5;
 
-  useEffect(() => {
-    if (isComplete && bpm) {
-      const classification = classifyHeartRate(bpm);
-      setBreathingPattern(breathingTechniques[classification]);
-    }
-  }, [isComplete, bpm]);
+  // useEffect(() => {
+  //   if (isComplete && bpm) {
+  //     const classification = classifyHeartRate(bpm);
+  //     setBreathingPattern(breathingTechniques[classification]);
+  //   }
+  // }, [isComplete, bpm]);
 
   useEffect(() => {
+    console.log("IS MONITORING HAS CHANGED");
+    // startMonitoring();
     if (isMonitoring) {
       startMonitoring();
     } else {
-      stopMonitoring();
+      // stopMonitoring();
     }
-    return () => stopMonitoring();
+    // return () => stopMonitoring();
   }, [isMonitoring]);
 
   const startMonitoring = async () => {
@@ -60,19 +62,20 @@ const useHeartRateMonitor = () => {
       }
 
       SAMPLE_BUFFER.current = [];
-      setIsComplete(false);
       setIsLive(true);
       monitorLoop();
 
       timerRef.current = setTimeout(() => {
-        setIsMonitoring(false);
+        // setIsMonitoring(false);
         setIsComplete(true);
+        const classification = classifyHeartRate(bpm);
+        setBreathingPattern(breathingTechniques[classification]);
         // setIsLive(false);
         setFeedbackMessage("Completed");
-        if (requestRef.current) {
-          cancelAnimationFrame(requestRef.current);
-          requestRef.current = null;
-        }
+        // if (requestRef.current) {
+        //   cancelAnimationFrame(requestRef.current);
+        //   requestRef.current = null;
+        // }
       }, 15000); // 15 seconds
     } catch (error) {
       console.log("Error with camera", error);
@@ -99,21 +102,21 @@ const useHeartRateMonitor = () => {
       cancelAnimationFrame(requestRef.current);
       requestRef.current = null;
     }
-    setIsMonitoring(false);
+    // setIsMonitoring(false);
   };
 
   const monitorLoop = () => {
-    if (!isMonitoring || isComplete) return;
+    // if (!isMonitoring) return;
     processFrame();
     requestRef.current = requestAnimationFrame(monitorLoop);
   };
 
   const toggleMonitoring = () => {
-    setIsMonitoring(!isMonitoring);
+    setIsMonitoring(true);
   };
 
   const processFrame = async () => {
-    if (!isMonitoring || isComplete) return;
+    // if (!isMonitoring || isComplete) return;
 
     const context = samplingCanvasRef.current.getContext("2d");
     context.drawImage(
@@ -144,19 +147,19 @@ const useHeartRateMonitor = () => {
         skipCounter.current += 1;
       }
 
-      if (!isComplete) {
-        const responseFromBackend = await sendHeartRateDataToBackend(
-          SAMPLE_BUFFER.current
-        );
-        if (responseFromBackend) {
-          if (responseFromBackend.bpm) {
-            setBpm(responseFromBackend.bpm);
-          }
-          if (responseFromBackend.dataStats) {
-            setDataStats(responseFromBackend.dataStats);
-          }
+      // if (!isComplete) {
+      const responseFromBackend = await sendHeartRateDataToBackend(
+        SAMPLE_BUFFER.current
+      );
+      if (responseFromBackend) {
+        if (responseFromBackend.bpm) {
+          setBpm(responseFromBackend.bpm);
+        }
+        if (responseFromBackend.dataStats) {
+          setDataStats(responseFromBackend.dataStats);
         }
       }
+      // }
     }
   };
 
