@@ -91,7 +91,7 @@ def get_bpm():
     # Return BPM along with data stats (min and max of smoothed data)
     return jsonify({
         'bpm': average_heart_rate,
-        'dataStats': data_stats,
+        'dataStats': np.log(data_stats),
         'smoothedData': smoothed_data_list  # Include smoothed data for graphing
     })
 

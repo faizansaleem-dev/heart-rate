@@ -39,11 +39,11 @@ const BreathingCircle = ({ breathingPattern }) => {
   }, [breathingPattern]);
 
   return (
-    <Box
-      sx={{ textAlign: "center", justifySelf: "center", mt: 10 }}
+    <div
+      className="my-6 mx-auto mt-20"
       ref={circleRef}
       id="breathing-circle"
-    ></Box>
+    ></div>
   );
 };
 
